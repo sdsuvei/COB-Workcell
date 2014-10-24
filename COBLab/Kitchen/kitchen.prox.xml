@@ -1,0 +1,16 @@
+<ProximitySetup UseIncludeAll="true" UseExcludeStaticPairs="true">
+	<Exclude PatternA="KitchenFloor" PatternB="KitchenWalls" />
+	<Exclude PatternA="KitchenFloor" PatternB="Sink" />
+	<Exclude PatternA="KitchenFloor" PatternB="Uppercabinet" />
+	<Exclude PatternA="KitchenFloor" PatternB="Refrigerator" />
+
+	<Exclude PatternA="KitchenWalls" PatternB="Sink" />
+	<Exclude PatternA="KitchenWalls" PatternB="Uppercabinet" />
+	<Exclude PatternA="KitchenWalls" PatternB="Refrigerator" />
+
+	<Exclude PatternA="Sink" PatternB="Uppercabinet" />
+	<Exclude PatternA="Sink" PatternB="Refrigerator" />
+	<Exclude PatternA="Sink" PatternB="Couch" />
+	
+	<Exclude PatternA="Uppercabinet" PatternB="Refrigerator" />
+</ProximitySetup>

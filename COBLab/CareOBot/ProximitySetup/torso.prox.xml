@@ -1,0 +1,5 @@
+<ProximitySetup UseIncludeAll="true" UseExcludeStaticPairs="true">
+	<Exclude PatternA="NeckLowerTilt" PatternB="NeckUpperTilt" />
+	<Exclude PatternA="NeckLowerTilt" PatternB="HeadCover" />
+	<Exclude PatternA="NeckUpperTilt" PatternB="HeadCover" />
+</ProximitySetup>

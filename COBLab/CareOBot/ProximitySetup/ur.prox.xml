@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<ProximitySetup UseIncludeAll="true" UseExcludeStaticPairs="true">
+    <Exclude PatternA="Base" PatternB="Shoulder"/>
+	<Exclude PatternA="Shoulder" PatternB="UpperArm"/>
+	<Exclude PatternA="UpperArm" PatternB="Forearm"/>
+	<Exclude PatternA="Forearm" PatternB="Wrist1"/>
+	<Exclude PatternA="Wrist1" PatternB="Wrist2"/>
+	<Exclude PatternA="Wrist2" PatternB="Wrist3"/>
+</ProximitySetup>
+

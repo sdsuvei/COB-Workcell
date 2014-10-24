@@ -1,0 +1,50 @@
+<Include file="mobility.xml" />
+
+<Frame name="Base" refframe="MobilityDevice.Position" />
+
+<Include file="base.xml" />
+
+<!-- URDF: location from revolute joint torso_lower_neck_tilt_joint -->
+<Frame name="Torso" refframe="Base.RefFrame">
+	<Pos>0.1535525935 0 0.8743916288</Pos>
+	<RPY>3.783102382 -3.3647019 91.49169289</RPY> <!-- in radians: 0.0660275925 -0.0587251265 1.5968312791 -->
+</Frame>
+
+<Include file="torso.xml" />
+
+<!-- URDF: location from revolute joint head_axis_joint -->
+<Frame name="Head" refframe="Torso.NeckUpperTilt">
+	<Pos>0 0.173 0</Pos>
+	<RPY>0 0 0</RPY>
+</Frame>
+<Include file="head.xml" />
+<Include file="cameras.xml" />
+
+<!-- URDF: location from joint tray_joint -->
+<Frame name="TrayMount" refframe="Base.RefFrame">
+	<Pos>0.2406 0.1900 0.7320</Pos>
+	<RPY>0 0 135</RPY>
+</Frame>
+<Include file="tray.xml" />
+
+<!-- URDF: fixed joint ur_connector_fixed_joint -->
+<Frame name="URConnector" refframe="Base.RefFrame">
+	<Pos>0 0 0.775</Pos>
+	<RPY>0 0 0</RPY>
+</Frame>
+
+<Include file="urconnector.xml" />
+
+<!-- URDF: fixed joint arm_base_joint -->
+<Frame name="Arm" refframe="URConnector.URConnectorJoint">
+	<Pos>0.1712 -0.1776 0.0551</Pos>
+	<RPY>-90 0 -30</RPY>
+</Frame>
+
+<Include file="ur.xml" />
+
+<Frame name="SDH" refframe="UR.TCP" />
+
+<Include file="sdh.xml" />
+
+<ProximitySetup file="ProximitySetup/CareOBot.prox.xml" />

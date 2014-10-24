@@ -1,0 +1,73 @@
+<SerialDevice name="Torso">
+	<Frame name="Base" />
+
+	<!-- URDF: revolute joint torso_lower_neck_tilt_joint -->
+	<Joint name="NeckLowerTilt" type="Revolute" />
+	
+	<!-- URDF: link torso_lower_neck_tilt_link -->
+	<Drawable name="NeckLowerTiltVisualGeo" refframe="NeckLowerTilt" colmodel="Disabled">
+		<Pos>0 0 0</Pos>
+		<RPY>0 0 180</RPY>
+		<Polytope file="Geometry/cob_description/meshes/torso/lower_neck" />
+	</Drawable>
+	<CollisionModel name="NeckLowerTiltCollisionGeo" refframe="NeckLowerTilt">
+		<Pos>0 0 0</Pos>
+		<RPY>0 0 180</RPY>
+		<Polytope file="Geometry/cob_description/meshes/torso/lower_neck_collision" />
+	</CollisionModel>
+
+	<PosLimit refjoint="NeckLowerTilt" min="-14.33" max="14.33" /> <!-- 0.25 rad -->
+	<VelLimit refjoint="NeckLowerTilt" max="28.65" /> <!-- 0.5 rad/s -->
+	<AccLimit refjoint="NeckLowerTilt" max="5730" /> <!-- 1000 rad/s/s -->
+
+	<!-- URDF: revolute joint torso_pan_joint -->
+	<Joint name="Pan" type="Revolute">
+		<Pos>0 0 0</Pos>
+		<RPY>0 0 90</RPY>
+	</Joint>
+	
+	<!-- URDF: link torso_pan_link -->
+	<!-- No drawable -->
+
+	<PosLimit refjoint="Pan" min="-11.45" max="11.45" /> <!-- 0.2 rad -->
+	<VelLimit refjoint="Pan" max="28.65" /> <!-- 0.5 rad/s -->
+	<AccLimit refjoint="Pan" max="2372" /> <!-- 41.4 rad/s/s -->
+
+	<!-- URDF: revolute joint torso_upper_neck_tilt_joint -->
+	<Joint name="NeckUpperTilt" type="Revolute">
+		<Pos>0 0 -0.2565</Pos>
+		<RPY>0 0 -90</RPY>
+	</Joint>
+	
+	<!-- URDF: link torso_upper_neck_tilt_link -->
+	<Drawable name="NeckUpperTiltVisualGeo" refframe="NeckUpperTilt" colmodel="Disabled">
+		<Pos>0 0 0</Pos>
+		<RPY>0 0 180</RPY>
+		<Polytope file="Geometry/cob_description/meshes/torso/upper_neck" />
+	</Drawable>
+	<CollisionModel name="NeckUpperTiltCollisionGeo" refframe="NeckUpperTilt">
+		<Pos>0 0 0</Pos>
+		<RPY>0 0 180</RPY>
+		<Polytope file="Geometry/cob_description/meshes/torso/upper_neck_collision" />
+	</CollisionModel>
+
+	<PosLimit refjoint="NeckUpperTilt" min="-22.92" max="22.92" /> <!-- 0.4 rad -->
+	<VelLimit refjoint="NeckUpperTilt" max="28.65" /> <!-- 0.5 rad/s -->
+	<AccLimit refjoint="NeckUpperTilt" max="2372" /> <!-- 41.4 rad/s/s -->
+
+	<!-- URDF: fixed joint head_cover_joint -->
+	<Frame name="HeadCover">
+		<Pos>0 0 0</Pos>
+		<RPY>0 0 180</RPY>
+	</Frame>
+	
+	<!-- URDF: link head_cover_link -->
+	<Drawable name="HeadCoverVisualGeo" refframe="HeadCover" colmodel="Disabled">
+		<Polytope file="Geometry/cob_description/meshes/torso/head_cover" />
+	</Drawable>
+	<CollisionModel name="HeadCoverCollisionGeo" refframe="HeadCover">
+		<Polytope file="Geometry/cob_description/meshes/torso/head_cover_collision" />
+	</CollisionModel>
+
+	<ProximitySetup file="ProximitySetup/torso.prox.xml" />
+</SerialDevice>

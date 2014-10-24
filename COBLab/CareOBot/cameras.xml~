@@ -1,0 +1,78 @@
+<!-- Intermediate Camera Reference Frame -->
+<!-- Camera frames defined in URDF file seems to bee offset for some reason -->
+<Frame name="CamerasOffset" refframe="Head.HeadJoint">
+	<Pos>0 0.03 0.05</Pos>
+	<RPY>0 0 0</RPY>
+</Frame>
+
+<!-- URDF: fixed joint head_color_camera_l_joint -->
+<Frame name="LeftCamera" refframe="CamerasOffset">
+	<Pos>-0.0168918076 -0.0331605618 -0.1227576067</Pos>
+	<RPY>-52.98 -89.44 49.65</RPY> <!-- Radians: -0.9246703056 -1.5610273707 0.8665791516 -->
+</Frame>
+
+<!-- URDF: link head_color_camera_l_link -->
+<!-- Note: Cameras are assumed to not be colliding (should not be used as collision model) 
+<Drawable name="LeftCameraGeo" refframe="LeftCamera" colmodel="Disabled">
+	<Cylinder radius="0.01" z="0.075" />
+</Drawable>-->
+
+<!-- URDF: fixed joint head_color_camera_l_frame_joint -->
+<Frame name="LeftCameraFrame" refframe="LeftCamera">
+	<Pos>0 0 0</Pos>
+	<RPY>0 0 180</RPY>
+	<Property name="Camera">50 1048 1048</Property>
+</Frame>
+
+<!-- URDF: fixed joint head_color_camera_r_joint -->
+<Frame name="RightCamera" refframe="LeftCamera">
+	<Pos>0.120625576659 0.00069791469442 -0.000529628535957</Pos>
+	<RPY>0.677 0.689 0.229</RPY> <!-- Radians: 0.0118234806514 0.0120185944721 0.00400056610075 -->
+</Frame>
+
+<!-- URDF: link head_color_camera_r_link -->
+<!-- Note: Cameras are assumed to not be colliding (should not be used as collision model) 
+<Drawable name="RightCamera" refframe="RightCamera" colmodel="Disabled">
+	<Cylinder 		radius="0.01" z="0.075" />
+</Drawable>
+-->
+<!-- URDF: fixed joint head_color_camera_r_frame_joint -->
+<Frame name="RightCameraFrame" refframe="RightCamera">
+	<Pos>0 0 0</Pos>
+	<RPY>0 0 180</RPY>
+	<Property name="Camera">70 1048 1048</Property>
+</Frame>
+
+<!-- URDF: fixed joint head_cam3d_joint -->
+<Frame name="Camera3D" refframe="CamerasOffset">
+	<Pos>-0.037555729 -0.0651598868 -0.0442883082</Pos>
+	<RPY>3.00 -89.1 -3.737</RPY>
+</Frame>
+
+<!-- URDF: link head_color_camera_r_link -->
+<!-- Note: Cameras are assumed to not be colliding (should not be used as collision model) -->
+<Drawable name="Camera3D" refframe="Camera3D" colmodel="Disabled">
+	<Pos>0 0 0.015</Pos>
+	<RPY>0 0 0</RPY>
+	<Box x="0.02" y="0.02" z="0.075" />
+</Drawable>
+
+	<Frame name="BottleTray" refframe="Camera3D" type="Movable" daf="true">
+		<Pos>0.07 -0.139 1.008</Pos>
+		<RPY>0 0 0</RPY>
+	</Frame>
+	<Drawable name="BottleTray" refframe="BottleTray">
+  		<Polytope file="Geometry/bottle" />
+	</Drawable>
+
+	<Frame name="Pregrasp" refframe="BottleTray" type="Movable" daf="true">
+		<Pos>0.0 -0.3 0.0</Pos>
+		<RPY>0 0 0</RPY>
+	</Frame>
+
+<!-- URDF: fixed joint head_cam3d_frame_joint -->
+<Frame name="Camera3DFrame" refframe="Camera3D">
+	<Pos>0 0 0</Pos>
+	<RPY>0 0 180</RPY>
+	<Property name="Camera">50 1384 1032</Property>
+</Frame>

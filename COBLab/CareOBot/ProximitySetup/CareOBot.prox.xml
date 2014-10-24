@@ -1,0 +1,18 @@
+<ProximitySetup UseIncludeAll="true" UseExcludeStaticPairs="true">
+	<!-- Base & Torso -->
+	<Exclude PatternA="Base.RefFrame" PatternB="Torso.NeckLowerTilt" />
+	
+	<!-- Torso & Head -->
+	<Exclude PatternA="Head.HeadJoint" PatternB="Torso.NeckUpperTilt" />
+	<Exclude PatternA="Head.Base" PatternB="Torso.NeckUpperTilt" />
+	
+	<!-- Base & Tray -->
+	<Exclude PatternA="Base.RefFrame" PatternB="Tray.TrayJoint" />
+	
+	<!-- Torso & Tray -->
+	<Exclude PatternA="Torso.NeckLowerTilt" PatternB="Tray.TrayJoint" />
+	
+	<!-- Arm & Hand -->
+	<Exclude PatternA="URConnector.URConnectorJoint" PatternB="UR.Base" />
+	<Exclude PatternA="SDH.Base" PatternB="UR.Wrist3" />
+</ProximitySetup>

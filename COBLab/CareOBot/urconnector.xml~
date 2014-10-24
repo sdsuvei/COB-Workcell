@@ -1,0 +1,26 @@
+<SerialDevice name="URConnector">
+	<Frame name="Fixed" />
+	
+	<!-- URDF: link ur_connector_fixed_joint -->
+	<Drawable name="URConnector" refframe="Fixed">
+		<Polytope file="Geometry/cob_description/meshes/ur_connector/ur_connector1" />
+	</Drawable>
+
+	<!-- URDF: revolute joint ur_connector_joint -->
+	<Joint name="URConnectorJoint" type="Revolute">
+		<Pos>-0.0201 -0.1736 0.136</Pos>
+		<RPY>0 0 0</RPY>
+	</Joint>
+	
+	<!-- URDF: link ur_connector_link -->
+	<Drawable name="URConnectorJoint" refframe="URConnectorJoint">
+		<Polytope file="Geometry/cob_description/meshes/ur_connector/ur_connector2" />
+	</Drawable>
+
+	<!-- URDF: revolute joint limits for ur_connector_joint -->
+	<PosLimit refjoint="URConnectorJoint" min="-190" max="190" /> <!-- 3.31612 rad -->
+	<VelLimit refjoint="URConnectorJoint" max="286.5" /> <!-- 5 rad/s -->
+	<AccLimit refjoint="URConnectorJoint" max="5729.6" /> <!-- 100 rad/s/s -->
+
+	<Q name="Home">0</Q>
+</SerialDevice>

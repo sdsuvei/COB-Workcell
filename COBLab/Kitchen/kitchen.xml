@@ -1,0 +1,105 @@
+<Frame name="KitchenRef" refframe="WORLD">
+	<Pos>-4.29 -2.52 0</Pos>
+	<RPY>0 0 0</RPY>
+</Frame>
+
+<!-- <Frame name="KitchenFloor" refframe="KitchenRef" />
+
+<Drawable name="KitchenFloor" refframe="KitchenFloor">
+	<Polytope file="Geometry/dti_kitchen_floor" />
+</Drawable> -->
+
+
+<Frame name="BackWall" refframe="WORLD">
+	<Pos>3.595 -2.493 2.41</Pos>
+	<RPY>-180 0 90</RPY>
+</Frame>
+
+<Drawable name="BackWall" refframe="BackWall">
+	<Polytope file="Geometry/BackWall" />
+</Drawable>
+
+<Frame name="RightWall" refframe="WORLD">
+	<Pos>-2.375 -2.469 1.01</Pos>
+	<RPY>-270 0 90</RPY>
+</Frame>
+
+<Drawable name="RightWall" refframe="RightWall">
+	<Polytope file="Geometry/RightWall" />
+</Drawable>
+
+<Frame name="FrontWall" refframe="WORLD" type="Movable" daf="true">
+	<Pos>3.617 0.348 1.237</Pos>
+	<RPY>180 0 90</RPY>
+</Frame>
+
+<Drawable name="FrontWall" refframe="FrontWall">
+	<Polytope file="Geometry/FrontWall" />
+</Drawable>
+
+<Frame name="LeftWall" refframe="WORLD">
+	<Pos>3.627 -2.463 -0.007</Pos>
+	<RPY>90 0 90</RPY>
+</Frame>
+
+<Drawable name="LeftWall" refframe="LeftWall">
+	<Polytope file="Geometry/LeftWall" />
+</Drawable>
+
+<Frame name="BigCabinet" refframe="WORLD">
+	<Pos>1.732 -1.903 2.103</Pos>
+	<RPY>180 0 90</RPY>
+</Frame>
+
+<Drawable name="BigCabinet" refframe="BigCabinet">
+	<Polytope file="Geometry/BigCabinet" />
+</Drawable>
+
+<Frame name="SmallCabinet" refframe="WORLD">
+	<Pos>0.858 -2.498 0.681</Pos>
+	<RPY>90 0 0</RPY>
+</Frame>
+
+<Drawable name="SmallCabinet" refframe="SmallCabinet">
+	<Polytope file="Geometry/SmallCabinet" />
+</Drawable>
+
+<Frame name="UpperCabinet" refframe="WORLD">
+	<Pos>3.304 -2.143 2.100</Pos>
+	<RPY>180 0 90</RPY>
+</Frame>
+
+<Drawable name="UpperCabinet" refframe="UpperCabinet">
+	<Polytope file="Geometry/UpperCabinet" />
+</Drawable>
+
+<Frame name="Sink" refframe="WORLD">
+	<Pos>3.440 -1.913 0.76</Pos>
+	<RPY>-180 0 90</RPY>
+</Frame>
+
+<Drawable name="Sink" refframe="Sink">
+	<Polytope file="Geometry/Sink" />
+</Drawable>
+
+<Frame name="Table" refframe="WORLD" type="Movable" daf="true">
+	<Pos>0 -1.752 0.80</Pos>
+	<RPY>-180 0 90</RPY>
+</Frame>
+
+<Drawable name="Table" refframe="Table">
+	<Polytope file="Geometry/Table" />
+</Drawable>
+
+
+<Frame name="ColaBox" refframe="WORLD" type="Movable" daf="true">
+	<Pos>-0.555 -2.275 0.260</Pos>
+	<RPY>0 0 0</RPY>
+</Frame>
+
+<Drawable name="ColaBox" refframe="ColaBox">
+	<Polytope file="Geometry/CocaCola" />
+</Drawable>
+
+
+<ProximitySetup file="kitchen.prox.xml" />

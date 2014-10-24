@@ -1,0 +1,121 @@
+<TreeDevice name="Base">
+	<Frame name="RefFrame" />
+	
+	<!-- URDF: link base_link -->
+	<Drawable name="BaseVisualGeometry" refframe="RefFrame" colmodel="Disabled">
+		<Polytope file="Geometry/cob_description/meshes/base/base" />
+	</Drawable>
+	<CollisionModel name="BaseCollisionGeometry" refframe="RefFrame">
+		<Polytope file="Geometry/cob_description/meshes/base/base_collision" />
+	</CollisionModel>
+	
+	<!-- URDF: fixed joint base_laser_front_joint -->
+    <Frame name="LaserScannerFront" refframe="RefFrame">
+    	<Pos>0.325 0 0.135</Pos>
+    	<RPY>0 0 0</RPY>
+    </Frame>
+    
+	<!-- URDF: link base_laser_front_link -->
+	<Drawable name="VisualGeometry" refframe="LaserScannerFront" colmodel="Disabled">
+		<Polytope file="Geometry/cob_description/meshes/sensors/sick_s300_laser" />
+	</Drawable>
+	<CollisionModel name="CollisionGeometry" refframe="LaserScannerFront">
+        <Cylinder radius="0.044" z="0.09" />
+	</CollisionModel>
+	
+	<!-- URDF: fixed joint base_laser_rear_joint -->
+    <Frame name="LaserScannerRear" refframe="RefFrame">
+    	<Pos>-0.325 0 0.135</Pos>
+    	<RPY>180 0 0</RPY>
+    </Frame>
+    
+	<!-- URDF: link base_laser_rear_link -->
+	<Drawable name="VisualGeometry" refframe="LaserScannerRear" colmodel="Disabled">
+		<Polytope file="Geometry/cob_description/meshes/sensors/sick_s300_laser" />
+	</Drawable>
+	<CollisionModel name="CollisionGeometry" refframe="LaserScannerRear">
+        <Cylinder radius="0.044" z="0.09" />
+	</CollisionModel>
+	
+	<!-- URDF: fixed joint base_laser_top_joint -->
+    <Frame name="LaserScannerTop" refframe="RefFrame">
+    	<Pos>-0.252 0 0.42</Pos>
+    	<RPY>0 0 0</RPY>
+    </Frame>
+    
+	<!-- URDF: link base_laser_top_link -->
+	<!-- No drawables defined in URDF -->
+
+	<Define id="wheeldef">
+		<!-- URDF: continuous joints: ??_caster_rotation_joint -->
+		<Joint name="Caster" type="Revolute" />
+		
+		<!-- URDF: links: ??_caster_rotation_link -->
+		<!-- Collision model not required (what should touch caster?) -->
+		<Drawable name="CasterGeo" refframe="Caster" colmodel="Disabled">
+			<Polytope file="Geometry/raw_description/meshes/base/raw_caster" />
+		</Drawable>
+		
+		<!-- URDF: continuous joints: ??_caster_r_wheel_joint -->
+		<Joint name="Wheel" type="Revolute">
+			<Pos>0 0 0</Pos>
+			<RPY>0 0 -90</RPY> <!-- to get rotation about y-axis as in URDF -->
+		</Joint>
+
+		<!-- URDF: links ??_caster_?_wheel_link -->
+		<Drawable name="WheelGeo" refframe="Wheel">
+			<Cylinder radius="0.074792" z="0.034" />
+		</Drawable>
+		
+		<Frame name="EndFrame" type="EndEffector">
+			<Pos>0 0 0</Pos>
+			<RPY>0 0 0</RPY>
+		</Frame>
+
+		<PosLimit refjoint="Caster" min="-180" max="180" />
+		<PosLimit refjoint="Wheel" min="-180" max="180" />
+		<VelLimit refjoint="Caster" max="573" /> <!-- 100 rad/s -->
+		<VelLimit refjoint="Wheel" max="573" /> <!-- 100 rad/s -->
+		<AccLimit refjoint="Caster" max="5730" /> <!-- 100 rad/s/s -->
+		<AccLimit refjoint="Wheel" max="5730" /> <!-- 100 rad/s/s -->
+	</Define>
+
+	<!-- URDF: location from continuous joint fl_caster_rotation_joint -->
+	<Frame name="FL" refframe="RefFrame">
+		<Pos>0.235 0.185 0.075</Pos>
+		<RPY>0 0 0</RPY>
+	</Frame>
+	<SerialChain name="FL">
+		<Use id="wheeldef" />
+	</SerialChain>
+
+	<!-- URDF: location from continuous joint fr_caster_rotation_joint -->
+	<Frame name="FR" refframe="RefFrame">
+		<Pos>0.235 -0.185 0.075</Pos>
+		<RPY>0 0 0</RPY>
+	</Frame>
+	<SerialChain name="FR">
+		<Use id="wheeldef" />
+	</SerialChain>
+
+	<!-- URDF: location from continuous joint bl_caster_rotation_joint -->
+	<Frame name="BL" refframe="RefFrame">
+		<Pos>-0.235 0.185 0.075</Pos>
+		<RPY>0 0 0</RPY>
+	</Frame>
+	<SerialChain name="BL">
+		<Use id="wheeldef" />
+	</SerialChain>
+
+	<!-- URDF: location from continuous joint br_caster_rotation_joint -->
+	<Frame name="BR" refframe="RefFrame">
+		<Pos>-0.235 -0.185 0.075</Pos>
+		<RPY>0 0 0</RPY>
+	</Frame>
+	<SerialChain name="BR">
+		<Use id="wheeldef" />
+	</SerialChain>
+
+	<ProximitySetup file="ProximitySetup/base.prox.xml" />
+
+</TreeDevice>

@@ -1,0 +1,3 @@
+<ProximitySetup UseIncludeAll="true" UseExcludeStaticPairs="true">
+	<Exclude PatternA="Base" PatternB="HeadJoint" />
+</ProximitySetup>

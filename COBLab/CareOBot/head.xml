@@ -1,0 +1,33 @@
+<SerialDevice name="Head">
+	<!-- Note: -->
+	<!-- Head are assumed to not be colliding (protected with head cover in Torso) -->
+	<!-- (should not be used as collision model) -->
+
+	<Frame name="Base" />
+	<Drawable name="HeadFixedGeo" refframe="Base" colmodel="Disabled">
+		<Pos>0 -0.0625 0</Pos>
+		<RPY>0 90 0</RPY>
+		<Polytope file="Geometry/head/fixed" />
+	</Drawable>
+
+	<!-- URDF: revolute joint head_axis_joint -->
+	<Joint name="HeadJoint" refframe="Base" type="Revolute">
+		<Pos>0 0 0</Pos>
+		<RPY>0 0 0</RPY>
+	</Joint>
+	
+	<!-- URDF: link head_axis_link -->
+	<Drawable name="HeadTurnGeo" refframe="HeadJoint" colmodel="Disabled">
+		<Pos>0 0.0625 0</Pos>
+		<RPY>180 -90 0</RPY>
+		<Polytope file="Geometry/head/turn" />
+	</Drawable>
+	
+	<PosLimit refjoint="HeadJoint" min="-183.35" max="5.730" /> <!-- -3.2 to 0.1 rad -->
+	<VelLimit refjoint="HeadJoint" max="80.2" /> <!-- 1.4 rad/s -->
+	<AccLimit refjoint="HeadJoint" max="573" /> <!-- 100 rad/s/s -->
+
+	<ProximitySetup file="ProximitySetup/head.prox.xml" />
+	
+	<Q name="Home">0.1</Q>
+</SerialDevice>

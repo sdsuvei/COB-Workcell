@@ -1,0 +1,18 @@
+<WorkCell name="CareOBotKitchenScene">
+	<Frame name="CareOBot">
+		<Pos>-1.5 -1.35 0</Pos>
+		<RPY>90 0 0</RPY>
+	</Frame>
+	
+	<Include file="CareOBot/CareOBot.xml" />
+	
+	<Frame name="BottleTray" refframe="Table" type="Movable" daf="true">
+		<Pos>0.202 0.106 -0.3</Pos>
+		<RPY>0 0 0</RPY>
+	</Frame>
+	<Drawable name="BottleTray" refframe="BottleTray">
+  		<Polytope file="Geometry/bottle" />
+	</Drawable>	
+
+	<Include file="Kitchen/kitchen.xml" />
+</WorkCell>

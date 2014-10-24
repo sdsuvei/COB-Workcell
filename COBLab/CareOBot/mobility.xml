@@ -1,0 +1,33 @@
+<SerialDevice name="MobilityDevice">
+	<Frame name="Base" />
+
+	<Joint name="x" type="Prismatic">
+		<Pos>0 0 0</Pos>
+		<RPY>0 90 0</RPY>
+	</Joint>
+	<Joint name="y" type="Prismatic">
+		<Pos>0 0 0</Pos>
+		<RPY>-90 -90 0</RPY>
+	</Joint>
+	<Joint name="Angle" type="Revolute">
+		<Pos>0 0 0</Pos>
+		<RPY>0 0 90</RPY>
+	</Joint>
+
+	<Frame name="Position" />
+
+	<!-- Standard Joint Limits -->
+	<PosLimit refjoint="x" min="-5" max="5" />
+	<PosLimit refjoint="y" min="-5" max="5" />
+	<PosLimit refjoint="Angle" min="-180" max="180" />
+
+	<VelLimit refjoint="x" max="1" />
+	<VelLimit refjoint="y" max="1" />
+	<VelLimit refjoint="Angle" max="10" />
+
+	<AccLimit refjoint="x" max="1" />
+	<AccLimit refjoint="y" max="1" />
+	<AccLimit refjoint="Angle" max="10" />
+
+	<Q name="Home">0.245 -0.765 0</Q>
+</SerialDevice>
